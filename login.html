@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azərsu ASC HİK - Maddi Yardım Portalı</title>
+    <!-- CSS faylını bura bağlayırıq -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- 1. GİRİŞ (LOGIN) BÖLMƏSİ                    -->
+    <!-- ========================================== -->
+    <section id="login-section">
+        <div class="login-card">
+            <h2>AZƏRSU ASC</h2>
+            <h3>Həmkarlar İttifaqı Komitəsi</h3>
+            <p class="subtitle">Elektron Müraciət Portalı</p>
+            <hr class="divider">
+            
+            <form id="login-form">
+                <div>
+                    <label>İstifadəçi Adı:</label>
+                    <input type="text" id="fin-input" placeholder="Adınızı daxil edin" required class="capitalize-input">
+                </div>
+                <div>
+                    <label>Şifrə:</label>
+                    <input type="password" id="password-input" placeholder="••••••" required>
+                </div>
+                <button type="submit">Portala Giriş</button>
+            </form>
+            
+            <p id="login-error" class="error-message">FİN kod və ya şifrə yanlışdır!</p>
+        </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- NAVİQASİYA PANELİ (Girişdən sonra açılır)    -->
+    <!-- ========================================== -->
+    <header id="portal-navigation" style="display: none;">
+        <h2>Azərsu HİK Elektron Portalı</h2>
+        <p>Xoş gəldiniz, <span id="user-display-name">İstifadəçi</span></p>
+        <button onclick="logout()" class="btn-logout">Sistemdən Çıxış</button>
+    </header>
+
+
+    <!-- ========================================== -->
+    <!-- 2. İŞÇİ PANELİ BÖLMƏSİ                    -->
+    <!-- ========================================== -->
+    <main id="worker-section" class="container" style="display: none;">
+        <h3 class="panel-title">İşçi Şəxsi Kabineti (Xətai Sukanal İdarəsi)</h3>
+        
+        <div class="card bg-highlight">
+            <p>Cari il ərzində aldığınız ümumi yardım məbləği: <strong id="worker-received-amt">0.00</strong> <b>AZN</b></p>
+        </div>
+        
+        <div class="grid-2">
+            <!-- Sol Tərəf: Yeni Müraciət Formu -->
+            <div class="card">
+                <h4 class="card-title text-primary">Yeni Maddi Yardım Ərizəsi</h4>
+                <form id="application-form">
+                    <div>
+                        <label>Yardım Kateqoriyası:</label>
+                        <select id="help-type" required>
+                            <option value="">-- Kateqoriya Seçin --</option>
+                            <option value="Müalicə və Əməliyyat">Müalicə və Əməliyyat xərcləri (Tibbi Epikriz)</option>
+                            <option value="Ailə qurma (Toy)">Ailə qurma münasibətilə (Nikah Şəhadətnaməsi)</option>
+                            <option value="Ailədə itki (Yas)">Ailə üzvünün vəfatı ilə bağlı (Ölüm şəhadətnaməsi)</option>
+                            <option value="Sosial Ehtiyac">Maddi çətinlik / Digər sosial ehtiyaclar</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Ərizənin Səbəbi (Açıqlama):</label>
+                        <textarea id="help-description" rows="4" placeholder="Komissiyaya təqdim olunacaq səbəbi bura yazın..." required></textarea>
+                    </div>
+                    <div>
+                        <label>Rəsmi Sənəd Əlavə Et (Forma 070 / Şəhadətnamə):</label>
+                        <input type="file" id="help-file" accept=".pdf,.jpg,.png" required>
+                    </div>
+                    <button type="submit">Müraciəti Komissiyaya Göndər</button>
+                </form>
+            </div>
+
+            <!-- Sağ Tərəf: Müraciətlərin Siyahısı (Arxiv) -->
+            <div class="card scrollable-x">
+                <h4 class="card-title text-dark">Müraciətlərimin Statusu</h4>
+                <table class="zero-margin">
+                    <thead>
+                        <tr>
+                            <th>Müraciət Növü və Açıqlama</th>
+                            <th>Tarix</th>
+                            <th>Məbləğ</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="worker-table-body">
+                        <!-- JavaScript dinamik olaraq sətirləri bura yerləşdirəcək -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- ========================================== -->
+    <!-- 3. ADMIN / KOMİSSİYA PANELİ BÖLMƏSİ        -->
+    <!-- ========================================== -->
+    <main id="admin-section" class="container" style="display: none;">
+        <h3 class="panel-title">Həmkarlar İttifaqı Komissiyasının İdarəetmə Masası</h3>
+        
+        <!-- Büdcə Hesabat Bloqları -->
+        <table class="budget-table">
+            <tr>
+                <td>
+                    <b>İLLİK SOSİAL BÜDCƏ</b>
+                    <p class="budget-blue">50,000.00 AZN</p>
+                </td>
+                <td>
+                    <b>XƏRCLƏNƏN MƏBLƏĞ</b>
+                    <p id="admin-total-spent" class="budget-red">0.00 AZN</p>
+                </td>
+                <td>
+                    <b>KASSA (QALAN BÜDCƏ)</b>
+                    <p id="admin-budget-left" class="budget-green">50,000.00 AZN</p>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Gələn Ərizələrin İdarə Olunması Cədvəli (CRUD) -->
+        <div class="card scrollable-x">
+            <h4 class="card-title text-primary">Daxil Olan Ərizələr və Qərarvermə Masası</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>İşçi </th>
+                        <th>Müraciət Növü və Açıqlama</th>
+                        <th>Yüklənmiş Sənəd</th>
+                        <th>Məbləğ Təyini (AZN)</th>
+                        <th>Komissiyanın Qərarı</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-table-body">
+                    <!-- JavaScript idarəetmə sətirləri bura yerləşdirəcək -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    
+    <script src="login.js"></script>
+</body>
+</html>

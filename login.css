@@ -1,0 +1,366 @@
+/* 1. LAYİHƏ ÜZRƏ QLOBAL DƏYİŞƏNLƏR VƏ AYARLAR */
+:root {
+    --primary-color: #0056b3;    /* Azərsu Korporativ Mavi */
+    --secondary-color: #00a8ff;  /* Su Mavisi */
+    --dark-bg: #002d62;         /* Tünd Göy */
+    --light-bg: #f4f7f6;        /* Layihə Fonu */
+    --white: #ffffff;
+    --text-color: #333333;
+    --success-color: #2ecc71;   /* Təsdiq Yaşılı */
+    --danger-color: #e74c3c;    /* İmtina Qırmızısı */
+    --warning-color: #f1c40f;   /* Gözləmə Sarısı */
+    --border-radius: 10px;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* 2. GİRİŞ (LOGIN) EKRANI DIZAYNI */
+#login-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-bg) 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#login-section .login-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#login-section h2 {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+#login-section h3 {
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+#login-section .subtitle {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+#login-section .divider {
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+/* FORMA STRUKTURU */
+form div {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 168, 255, 0.2);
+}
+
+.capitalize-input {
+    text-transform: capitalize;
+}
+
+/* DÜYMƏLƏR */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.error-message {
+    color: var(--danger-color);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    display: none;
+}
+
+/* 3. NAVİQASİYA PANELİ (HEADER) */
+#portal-navigation {
+    background-color: var(--white);
+    padding: 15px 30px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#portal-navigation h2 {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+#portal-navigation p {
+    font-size: 15px;
+    color: #555;
+}
+
+#portal-navigation span {
+    font-weight: 700;
+    color: var(--dark-bg);
+}
+
+.btn-logout {
+    width: auto;
+    padding: 8px 18px;
+    background-color: var(--danger-color);
+    font-size: 14px;
+}
+
+.btn-logout:hover {
+    background-color: #c0392b;
+}
+
+/* 4. STRUKTUR VƏ SƏHİFƏ AYARLARI */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+#worker-section, #admin-section {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.panel-title {
+    margin-bottom: 25px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 15px;
+    color: var(--dark-bg);
+}
+
+/* KARTLAR */
+.card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+}
+
+.bg-highlight {
+    font-size: 16px;
+}
+
+.bg-highlight strong {
+    color: var(--success-color);
+    font-size: 20px;
+}
+
+.card-title {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f4f7f6;
+    padding-bottom: 8px;
+}
+
+.text-primary { color: var(--primary-color); }
+.text-dark { color: var(--dark-bg); }
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 25px;
+}
+
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.scrollable-x {
+    overflow-x: auto;
+}
+
+/* 5. CƏDVƏLLƏR (TABLES) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.zero-margin {
+    margin-top: 0;
+}
+
+th, td {
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 14px;
+}
+
+th {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+tr {
+    border-bottom: 1px solid #edf2f7;
+    transition: background 0.2s;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+/* BÜDCƏ BLOKLARI */
+.budget-table {
+    box-shadow: none;
+    margin-bottom: 20px;
+}
+
+.budget-table td {
+    padding: 20px;
+    text-align: center;
+    background: var(--white);
+    border: 1px solid #e2e8f0;
+}
+
+.budget-table b {
+    display: block;
+    color: #718096;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.budget-table p {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.budget-blue { color: var(--primary-color); }
+.budget-red { color: var(--danger-color); }
+.budget-green { color: var(--success-color); }
+
+/* STATUS KAPSILLARI (BADGES) */
+.status-pending {
+    background-color: #fef9c3;
+    color: #713f12;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.status-approved {
+    background-color: #dcfce7;
+    color: #14532d;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.status-rejected {
+    background-color: #fee2e2;
+    color: #7f1d1d;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 12px;
+    display: inline-block;
+}
+
+/* ADMIN ƏMƏLİYYAT ELEMENTLƏRİ */
+.btn-action {
+    width: auto;
+    padding: 6px 12px;
+    font-size: 12px;
+    margin: 2px;
+    display: inline-block;
+}
+
+.btn-approve { background-color: var(--success-color); }
+.btn-approve:hover { background-color: #27ae60; }
+.btn-reject { background-color: var(--danger-color); }
+.btn-reject:hover { background-color: #c0392b; }
+
+.input-table-amount {
+    width: 100px;
+    padding: 6px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* ANIMASIYA */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

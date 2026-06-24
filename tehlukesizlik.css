@@ -1,0 +1,129 @@
+/* ==========================================================================
+   ƏMƏK TƏHLÜKƏSİZLİYİ SƏHİFƏSİ STİLLƏRİ
+   ========================================================================== */
+.safe-page-body {
+    background-color: #f4f7fa !important;
+    margin: 0; 
+    padding: 0 !important;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Səhifəni tam ekran hündürlüyünə məcbur edir və footeri altda saxlayır */
+}
+
+.safe-container {
+    width: 90%; 
+    max-width: 1000px; 
+    margin: 0 auto;
+}
+
+/* Header */
+.safe-header {
+    background-color: #002d62; 
+    color: #ffffff; 
+    padding: 15px 0; 
+    border-bottom: 3px solid #00a8e8;
+}
+
+.flex-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.safe-logo { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    color: #ffffff; 
+}
+
+.safe-logo i { 
+    font-size: 26px; 
+    color: #ffd700; /* Qoruyucu qalxan üçün qızılı rəng */
+}
+
+.safe-logo strong {
+    display: block;
+}
+
+.safe-logo span { 
+    display: block; 
+    font-size: 11px; 
+    color: #a0aec0; 
+}
+
+.safe-back-btn {
+    background-color: #005691; 
+    color: #ffffff; 
+    text-decoration: none; 
+    padding: 8px 15px; 
+    border-radius: 4px; 
+    font-size: 13px; 
+    font-weight: 600;
+}
+
+.safe-back-btn:hover { 
+    background-color: #00a8e8; 
+    color: #002d62; 
+}
+
+/* Əsas Məzmun */
+.safe-main { 
+    padding: 40px 0; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 25px; 
+    flex: 1; /* Kontent az olsa belə footeri aşağı itələyir */
+}
+
+.safe-card {
+    background: #ffffff; 
+    padding: 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+/* Sol Haşiyə Rəngləri */
+.border-red { border-left: 5px solid #e53e3e; }   /* Təhlükəsizlik xəbərdarlığı üçün qırmızı */
+.border-green { border-left: 5px solid #38a169; } /* Sağlamlıq üçün yaşıl */
+.border-gold { border-left: 5px solid #dd6b20; }  /* Komissiya üçün narıncı-qızılı */
+
+.safe-card h2 { 
+    font-size: 18px; 
+    color: #002d62; 
+    margin-top: 0;
+    margin-bottom: 12px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.border-red h2 i { color: #e53e3e; }
+.border-green h2 i { color: #38a169; }
+.border-gold h2 i { color: #dd6b20; }
+
+.safe-card p { 
+    font-size: 14.5px; 
+    color: #4a5568; 
+    line-height: 1.6; 
+}
+
+/* Ən Altdakı Sabit Footer */
+.safe-footer {
+    background-color: #002d62; 
+    color: #a0aec0; 
+    text-align: center; 
+    padding: 20px 0; 
+    font-size: 12px;
+    width: 100%;
+}
+
+/* Mobil Cihazlar Üçün */
+@media (max-width: 768px) {
+    .flex-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}

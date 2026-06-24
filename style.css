@@ -1,0 +1,444 @@
+/* ==========================================================================
+   1. Qlobal Ayarlar və Dəyişənlər
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s, filter 0.3s, transform 0.3s;
+}
+
+:root {
+    --main-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    
+    --primary-color: #005691;       
+    --primary-dark: #002d62;        
+    --accent-color: #00a8e8;        
+    --accent-hover: #008cc4;        
+    --bg-light: #f0f4f8;            
+    --text-main: #1c2d42;           
+    --text-muted: #627d98;          
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    padding-left: 60px; 
+    font-family: var(--main-font-family);
+}
+
+/* ==========================================================================
+   2. Əlçatanlıq Rejimləri (Accessibility)
+   ========================================================================== */
+
+/* 1. Body siniflərinə görə baza ölçülər */
+body.font-small { 
+    font-size: 16px !important; 
+}
+body.font-medium { 
+    font-size: 18px !important; 
+}
+body.font-large { 
+    font-size: 24px !important; 
+}
+
+/* 2. Bütün mətn elementləri body-nin ölçüsünü götürsün */
+body.font-small h1, body.font-small h2, body.font-small h3, 
+body.font-small h4, body.font-small p, body.font-small a,
+body.font-medium h1, body.font-medium h2, body.font-medium h3, 
+body.font-medium h4, body.font-medium p, body.font-medium a,
+body.font-large h1, body.font-large h2, body.font-large h3, 
+body.font-large h4, body.font-large p, body.font-large a {
+    font-size: 1em !important; 
+}
+
+/* 3. İkonlar və Düymələr sabit qalsın */
+.size-btn, .type-btn, .slider, .dot, .fa, .fab, .fas {
+    font-size: 16px !important; 
+}
+
+/* 4. Şrift növləri və Serif tətbiqi */
+body.font-serif h1, body.font-serif h2, body.font-serif h3, 
+body.font-serif h4, body.font-serif p, body.font-serif span, 
+body.font-serif a {
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
+
+body.font-serif i, body.font-serif .fa-solid, 
+body.font-serif .fa-brands, body.font-serif .fa-regular {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+
+/* 5. Şəkillərin gizlədilməsi və Monoxrom rejimi */
+body.hide-images img, 
+body.hide-images .hero-slider {
+    background-image: linear-gradient(to top, rgba(7, 59, 58, 0.95), rgba(7, 59, 58, 0.95)) !important;
+}
+body.hide-images img { 
+    visibility: hidden !important; 
+    opacity: 0 !important; 
+}
+body.monochrome { 
+    filter: grayscale(100%) contrast(120%) !important; 
+}
+
+/* ==========================================================================
+   3. Struktur və Səhifə Layout Sistemləri
+   ========================================================================== */
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Göy kartlar üçün ana səhifədəki grid quruluşu */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+/* Göy Kartlar üçün alternativ 4-lü Struktur */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* ==========================================================================
+   4. Komponentlər (Panellər, Header, Slayder)
+   ========================================================================== */
+/* Əlçatanlıq Paneli */
+.accessibility-panel {
+    background-color: #ffffff;
+    border-bottom: 2px solid var(--primary-color);
+    padding: 15px 0;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+.accessibility-panel.show { display: block; }
+.panel-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.panel-group { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.panel-group span { font-size: 11px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.8px; }
+
+.font-sizes, .font-types { display: flex; gap: 8px; align-items: center; }
+.size-btn { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-main); }
+.font-sm { width: 32px; height: 32px; font-size: 12px; }
+.font-md { width: 38px; height: 38px; font-size: 16px; font-weight: bold; }
+.font-lg { width: 44px; height: 44px; font-size: 20px; }
+.size-btn.active { background-color: var(--primary-dark); color: #ffffff; border-color: var(--primary-dark); }
+.type-btn { background: none; border: none; font-size: 14px; color: var(--text-muted); cursor: pointer; font-weight: 600; }
+.type-btn.active { color: var(--primary-color); font-weight: bold; }
+
+.toggle-switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #cbd5e1; border-radius: 34px; }
+.slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 3px; bottom: 3px; background-color: white; border-radius: 50%; }
+input:checked + .slider { background-color: var(--primary-color); }
+input:checked + .slider:before { transform: translateX(24px); }
+
+/* Sosial Panel */
+.sticky-socials { position: fixed; left: 0; top: 0; height: 100vh; width: 60px; background-color: #ffffff; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: flex-start; padding-top: 40px; align-items: center; gap: 25px; z-index: 999; }
+.social-icon { color: var(--primary-color); font-size: 18px; text-decoration: none; }
+.social-icon:hover { color: var(--accent-color); }
+
+/* Header */
+.main-header { background-color: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 18px 0; position: sticky; top: 0; z-index: 998; }
+.header-container { display: flex; justify-content: space-between; align-items: center; }
+.logo-section { display: flex; align-items: center; gap: 15px; max-width: 45%; }
+.logo-section i { color: var(--primary-color) !important; }
+.logo-text { font-size: 14px; color: var(--primary-dark); line-height: 1.3; letter-spacing: 0.3px; }
+.header-slogan { display: flex; align-items: center; gap: 10px; color: var(--accent-color); font-weight: 600; }
+.header-actions { display: flex; align-items: center; gap: 15px; }
+.header-icon-btn, .menu-burger { background: none; border: 1px solid #cbd5e1; width: 38px; height: 38px; border-radius: 6px; cursor: pointer; color: var(--text-main); display: flex; align-items: center; justify-content: center; }
+.header-icon-btn:hover, .menu-burger:hover { border-color: var(--primary-color); color: var(--primary-color); }
+
+/* Slayder */
+.hero-slider {
+    height: 550px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 50px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.6s ease-in-out;
+}
+.slide-content { width: 85%; margin: 0 auto; color: #ffffff; }
+.slide-content h2 { font-size: 32px; max-width: 800px; margin-bottom: 30px; font-weight: 500; line-height: 1.4; min-height: 90px; }
+.slider-controls { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; }
+.dots { display: flex; gap: 10px; }
+.dot { width: 12px; height: 12px; background-color: rgba(255,255,255,0.3); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; }
+.dot.active { background-color: var(--accent-color); width: 30px; border-radius: 10px; }
+.arrow-btn { background: rgba(255,255,255,0.15); border: none; color: white; width: 40px; height: 40px; border-radius: 6px; cursor: pointer; margin-left: 10px; }
+.arrow-btn:hover { background: var(--accent-color); }
+
+/* ==========================================================================
+   5. Göy / Gradient Kartlar Bölməsi
+   ========================================================================== */
+.blue-cards-section { padding: 60px 0; }
+.card-link { text-decoration: none; color: inherit; display: block; height: 100%; }
+.gradient-card {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: #ffffff;
+    padding: 50px 30px 30px 30px;
+    min-height: 240px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+}
+.card-link:hover .gradient-card {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 45, 98, 0.25);
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.card-category {
+    position: absolute;
+    top: 15px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    text-transform: uppercase;
+}
+
+.card-icon { font-size: 35px; color: var(--accent-color); margin-bottom: 15px; }
+.gradient-card h3 { font-size: 14.5px; font-weight: 600; letter-spacing: 0.5px; line-height: 1.5; }
+
+/* ==========================================================================
+/* 6. Xəbərlər Bölməsi
+========================================================================== */
+.news-section { padding: 40px 0; }
+
+.section-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 35px; 
+    /* border-left və padding-left burdan silindi, çünki title-a keçdi */
+}
+
+.section-title {
+    position: relative;
+    padding-left: 15px; 
+    color: #002d62; 
+    font-size: 24px;
+    margin: 0; /* Margin-bottom-u aşağıda təyin edəcəyik */
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px; /* Başlığın yuxarısından bir az boşluq üçün */
+    width: 4px; 
+    height: 24px; /* Başlıq hündürlüyünə uyğun sabit hündürlük */
+    background-color: #002d62; 
+    border-radius: 2px;
+}
+
+.see-all { color: var(--accent-color); text-decoration: none; font-weight: 600; }
+.see-all:hover { color: var(--primary-color); }
+
+.news-card { background: #ffffff; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+.news-img-wrapper img { width: 100%; height: 240px; object-fit: cover; }
+.news-meta { padding: 15px 20px 5px; font-size: 13px; color: var(--text-muted); }
+.news-card h4 { padding: 0 20px 20px; font-size: 16px; color: var(--text-main); line-height: 1.5; font-weight: 600; }
+/* ==========================================================================
+   7. Ağ Bloklar (İkisi Sağda, İkisi Solda - 2x2 Grid)
+   ========================================================================== */
+.white-links-section { 
+    background-color: #ebf1f0; 
+    padding: 60px 0; 
+}
+/* Bu bölmənin daxilindəki konteyneri 2 sütunlu edirik (2 solda, 2 sağda) */
+.white-links-section .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 25px;
+}
+.white-link-box { 
+    background-color: #ffffff; 
+    padding: 30px; 
+    border-radius: 6px; 
+    border: 1px solid #d1dedc; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    cursor: pointer; 
+}
+.white-link-box:hover { 
+    box-shadow: 0 8px 20px rgba(13, 92, 90, 0.08); 
+    border-color: var(--primary-color); 
+}
+.box-top { display: flex; justify-content: space-between; align-items: center; color: var(--primary-dark); }
+.box-top h3 { font-size: 17px; font-weight: 600; }
+.box-top i { color: var(--accent-color); font-size: 14px; }
+.white-link-box p { color: var(--text-muted); font-size: 14px; line-height: 1.5; }
+
+/* ==========================================================================
+   8. Şəhidlər Bölməsi və Yeni Modern Ağ Düymə
+   ========================================================================== */
+.martyrs-banner { 
+    background: linear-gradient(to right, rgba(0, 45, 98, 0.9), rgba(184, 134, 11, 0.4)), 
+                url('https://www.turkustan.az/media/2024/03/27/maxe_olmaq_isteyenler.jpg') no-repeat center center/cover; 
+    padding: 70px 0; 
+    color: #ffffff; 
+}
+
+.martyrs-content { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    align-items: flex-start; 
+}
+
+.martyrs-content h2 { 
+    font-size: 30px; 
+    font-weight: 500; 
+}
+
+/* Şəkillərdəki İstəyə Tam Uyğunlaşdırılmış "Ətraflı" Düyməsi */
+.btn-outline,
+.btn-outline a,
+.btn-martyrs { 
+    background-color: #ffffff !important; /* image_12.png-dəki kimi təmiz ağ fon */
+    color: #000000 !important;            /* Göy link rəngini sıfırlayıb təmiz qara edir */
+    text-decoration: none !important;     /* Mətnin altındakı göy xətti tamamilə silir */
+    
+    border: none;
+    padding: 12px 35px; 
+    font-size: 16px; 
+    font-weight: 500;
+    cursor: pointer; 
+    border-radius: 8px;                    /* image_12.png-dəki zərif yuvarlaq kənarlar */
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Zərif kölgə daxili */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Üzərinə gəldikdə yüngül interaktivlik */
+.btn-outline:hover,
+.btn-martyrs:hover { 
+    text-decoration: none !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   9. Gənclər / Digər Səhifələrdəki "Geri Qayıt" Düyməsi
+   ========================================================================== */
+.youth-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-dark);
+    text-decoration: none !important; /* Xətləri silir */
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+.youth-back-btn:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    text-decoration: none !important;
+}
+
+/* ==========================================================================
+   10. YouTube Mediya Bölməsi
+   ========================================================================== */
+.youtube-section { padding: 60px 0; }
+.circle-arrow { background: white; border: 1px solid #cbd5e1; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; margin-left: 10px; color: var(--text-main); }
+.video-card { position: relative; border-radius: 6px; overflow: hidden; cursor: pointer; }
+.video-card img { width: 100%; display: block; height: 230px; object-fit: cover; }
+.play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(255,255,255,0.9); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 18px; }
+
+
+/*reqemlerle */
+.stats-area h2 { font-size: 32px; color: var(--navy-dark); }
+.stat-item { padding: 20px; }
+.stat-num { font-size: 48px; font-weight: 800; color: var(--azersu-blue); display: block; }
+
+
+
+/* ==========================================================================
+   11. Footer (Saytın Sonu)
+   ========================================================================== */
+.main-footer { background-color: var(--primary-dark); color: #ffffff; padding: 60px 0 30px; border-top: 4px solid var(--accent-color); }
+.footer-top { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; margin-bottom: 40px; flex-wrap: wrap; gap: 30px; }
+.footer-logo-area { display: flex; align-items: center; gap: 15px; max-width: 350px; }
+.footer-logo-area i { color: var(--accent-color) !important; }
+.footer-contacts { display: flex; gap: 40px; flex-wrap: wrap; }
+.contact-item { display: flex; gap: 15px; align-items: flex-start; }
+.contact-item i { font-size: 20px; margin-top: 3px; color: var(--accent-color); }
+.contact-item span { font-size: 11px; opacity: 0.7; display: block; margin-bottom: 2px; text-transform: uppercase; }
+.footer-links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
+.footer-col h4 { font-size: 15px; margin-bottom: 20px; font-weight: 600; color: var(--accent-color); }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; }
+/* Footer-in ən alt hissəsi */
+.footer-bottom {
+    background-color: #001a3d; /* Tünd rəsmi göy rəng */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+
+.main-footer1 { background: var(--navy-dark); color: var(--white); text-align: center; padding: 40px 20px; margin-top: 60px; }
+.main-footer1 small { opacity: 0.5; display: block; margin-top: 10px; }
+/* ==========================================================================
+   12. Ekran Uyğunlaşmaları (Responsive Media Queries)
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    body { padding-left: 0; }
+    .sticky-socials { display: none; }
+    .header-slogan { display: none; }
+}
+
+@media (max-width: 768px) {
+    /* Mobil və planşetlərdə ağ bloklar alt-alta düzülsün */
+    .white-links-section .container {
+        grid-template-columns: 1fr;
+    }
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+    .martyrs-banner { 
+        padding: 50px 0; 
+        text-align: center; 
+    }
+    .martyrs-content { 
+        align-items: center; 
+    }
+    .btn-outline, .btn-martyrs {
+        width: 100%; /* Mobildə düymə tam en tutsun */
+    }
+}

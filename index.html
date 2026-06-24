@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azərsu Həmkarlar İttifaqı Komitəsi (Azərsu HİK)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="accessibility-panel" id="accessibilityPanel">
+        <div class="container panel-container">
+            <div class="panel-group">
+                <span>ŞRİFTİN ÖLÇÜSÜ</span>
+                <div class="font-sizes">
+                    <button class="size-btn font-sm" data-size="small">A</button>
+                    <button class="size-btn font-md active" data-size="medium">A</button>
+                    <button class="size-btn font-lg" data-size="large">A</button>
+                </div>
+            </div>
+            <div class="panel-group">
+                <span>ŞRİFTİN NÖVÜ</span>
+                <div class="font-types">
+                    <button class="type-btn active" data-type="sans-serif">San-Serif</button>
+                    <button class="type-btn" data-type="serif">Serif</button>
+                </div>
+            </div>
+            <div class="panel-group">
+                <span>ŞƏKİLLƏRİN TƏSVİRİ</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggleImages">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="panel-group">
+                <span>RƏNGİN TƏSVİRİ</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="toggleMonochrome">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="sticky-socials">
+        <a href="https://www.facebook.com/azersu.az/" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@AZERSUHIK" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.instagram.com" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://twitter.com" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <i class="fa-solid fa-water" style="font-size: 35px;"></i>
+                <div class="logo-text">
+                    <strong>AZƏRSU HƏMKARLAR İTTİFAQI KOMİTƏSİ</strong>
+                </div>
+            </div>
+            <div class="header-slogan">
+                <i class="fa-solid fa-hands-holding-water"></i>
+                <span>Su təsərrüfatı işçilərinin yanındayıq!</span>
+            </div>
+            <div class="header-actions">
+    <button class="header-icon-btn" id="viewToggleBtn"><i class="fa-solid fa-eye"></i></button>
+    <!-- İndi bu düymə həm vizual olaraq əvvəlki kimidir, həm də linkdir -->
+    <a href=".vscode/login/login.html" class="menu-burger" id="menuToggle" style="text-decoration: none; color: inherit;">
+        <i class="fa-solid fa-bars"></i>
+    </a>
+</div>
+        </div>
+    </header>
+
+    <section class="hero-slider" id="heroSlider">
+        <div class="slide-content">
+            <h2 id="slideTitle">Yüklənir...</h2>
+            <div class="slider-controls">
+                <div class="dots" id="sliderDots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
+                </div>
+                <div class="arrows">
+                    <button class="arrow-btn" id="prevSlide"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="arrow-btn" id="nextSlide"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blue-cards-section">
+        <div class="container grid-3">
+            <a href="blue cards/huquqlar.html" class="card-link"><div class="gradient-card"><div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div><h3>SU TƏSƏRRÜFATI İŞÇİLƏRİNİN HÜQUQLARI</h3></div></a>
+            <a href="blue cards/gencler.html" class="card-link"><div class="gradient-card"><div class="card-icon"><i class="fa-solid fa-people-group"></i></div><h3>GƏNCLƏR SİYASƏTİ VƏ SOSİAL STRUKTUR</h3></div></a>
+            <a href="blue cards/terefTurizm.html" class="card-link"><div class="gradient-card"><div class="card-icon"><i class="fa-solid fa-handshake"></i></div><h3>"AZƏRSU" ASC İLƏ SOSİAL TƏRƏFDAŞLIQ</h3></div></a>
+            <a href="blue cards/layiheler.html" class="card-link"><div class="gradient-card"><div class="card-icon"><i class="fa-regular fa-file-lines"></i></div><h3>HİK LAYİHƏLƏRİ VƏ TƏDBİRLƏR</h3></div></a>
+            <a href="blue cards/tehlukesizlik.html" class="card-link"><div class="gradient-card"><div class="card-icon"><i class="fa-solid fa-user-shield"></i></div><h3>ƏMƏYİN MÜHAFİZƏSİ VƏ TEXNİKİ TƏHLÜKƏSİZLİK</h3></div></a>
+            <a href="blue cards/terefTurizm.html" class="card-link"><div class="gradient-card"><div class="card-icon"><i class="fa-solid fa-earth-americas"></i></div><h3>İŞÇİLƏR ÜÇÜN SANATORİYA VƏ TURİZM</h3></div></a>
+        </div>
+    </section>
+
+    <section class="martyrs-banner">
+        <div class="container martyrs-content">
+            <h2>Şəhidlərimizi Qürurla Anırıq!</h2>
+            <a href="https://president.az/az/pages/view/azerbaijan/karabakh2" target="_blank" class="btn-martyrs">Ətraflı</a>
+        </div>
+    </section>
+
+    <section class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Xəbərlər</h2>
+                <a href="blue cards/layiheler.html" class="see-all">Hamısına bax <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="grid-3">
+                
+                <div class="news-card">
+                    <div class="news-img-wrapper"><img src="https://isst.gov.az/storage/1196/01KS2J8VXAA9XA3Z0H6SECBMQB.jpg" alt="News"></div>
+                    <div class="news-meta">20.05.2026</div>
+                    <h4>WUF 13 forumunda iştirak edən qonaqlar Ceyranbatan su anbarı və Ultrasüzgəcli Sutəmizləyici Qurğular Kompleksində olublar</h4>
+                </div>
+                <div class="news-card">
+                    <div class="news-img-wrapper"><img src="https://isst.gov.az/storage/1207/01KS2KZ2EA3G97DR0QKFJ9TMFD.jfif" alt="News"></div>
+                    <div class="news-meta">20.05.2026</div>
+                    <h4>“Şəhərlərin iqlim dayanıqlılığı və su təhlükəsizliyi” mövzusunda sessiyada ADSEA sədrinin birinci müavini açılış nitqi ilə çıxış edib</h4>
+                </div>
+                <div class="news-card">
+                    <div class="news-img-wrapper"><img src="https://isst.gov.az/storage/1139/01KQEH6TF83M7Z2JC2AP804MA6.jpg" alt="News"></div>
+                    <div class="news-meta">30.04.2026</div>
+                    <h4>İri Şəhərlərin Birləşmiş Su Təchizatı Xidmətində Mülki müdafiə qüvvələri ilə xəbərdarlıq-toplanış məşqi keçirildi</h4>
+                </div>
+                <div class="news-card">
+                    <div class="news-img-wrapper"><img src="https://isst.gov.az/storage/1104/01KP603XSE4S182TGDHP3E5H9M.jpeg" alt="News"></div>
+                    <div class="news-meta">14.04.2026</div>
+                    <h4>Pirşağı hövzəsi üzrə kanalizasiya kollektorları tikilir</h4>
+                </div>
+                <div class="news-card">
+                    <div class="news-img-wrapper"><img src="https://isst.gov.az/storage/1061/01KMYGJ0WTX6H9HQ9RN0JRDYRD.jpg" alt="News"></div>
+                    <div class="news-meta">30.03.2026</div>
+                    <h4>Küçələr yağış sularından təmizlənir</h4>
+                </div>
+                <div class="news-card">
+                    <div class="news-img-wrapper"><img src="https://isst.gov.az/storage/1050/01KM2JD8YS5JWYEA045SVRHW9B.jpeg" alt="News"></div>
+                    <div class="news-meta">19.03.2026</div>
+                    <h4>Tullantı sutəmizləyici qurğunun və kollektorun tikinti ərazisinə mediatur təşkil olundu</h4>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+
+    <section class="youtube-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Azərsu HİK Youtube Kanalı</h2>
+                <div class="slider-arrows">
+                    <button class="circle-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="circle-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="grid-3">
+                <a href="https://www.youtube.com/@AZERSUHIK" target="_blank" class="video-card">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=400" alt="Video">
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </a>
+                <a href="https://www.youtube.com/@AZERSUHIK" target="_blank" class="video-card">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=400" alt="Video">
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </a>
+                <a href="https://www.youtube.com/@AZERSUHIK" target="_blank" class="video-card">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=400" alt="Video">
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+        
+<section id="structure-section" class="stats-area container text-center">
+        <h2>Rəqəmlərlə Bizim Fəaliyyətimiz</h2>
+        <div class="grid-3" style="margin-top: 40px;">
+            <div class="stat-item">
+                <span class="stat-num" id="stat-workers">0</span>
+                <p>HİK Üzvü Olan İşçi</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" id="stat-projects">0</span>
+                <p>İllik Təsdiqlənən Müraciət</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num" id="stat-resorts">0</span>
+                <p>İllik Rəsmi Tədbir Sayı</p>
+            </div>
+        </div>
+    </section>
+
+    
+<footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo-area">
+                    <i class="fa-solid fa-water" style="font-size: 45px;"></i>
+                    <div>
+                        <strong>AZƏRSU HƏMKARLAR İTTİFAQI KOMİTƏSİ</strong>
+                    </div>
+                </div>
+
+                <div class="footer-contacts">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <span>Ünvan</span>
+                            <p>Bakı şəhəri, Moskva prospekti, 67, AZ 1012</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <span>Elektron poçt</span>
+                            <p>info@azersuhik.az</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <span>Əlaqə nömrəsi</span>
+                            <p>(012) 123-45-67<br>(012) 123-45-67<br>Qaynar Xətt: 123</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>AZƏRSU HİK</h4>
+                    <ul>
+                        <li><a href="#">Komitə Haqqında</a></li>
+                        <li><a href="#">Rəhbərlik və İdarə Heyəti</a></li>
+                        <li><a href="#">Təşkilati Struktur</a></li>
+                        <li><a href="#">Nizamnamə və Orqanlar</a></li>
+                        <li><a href="#">Əmək Mühafizəsi Qaydaları</a></li>
+                        <li><a href="#">Fəaliyyət Planı-2026</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>MEDİA</h4>
+                    <ul>
+                        <li><a href="#">Cari Xəbərlər</a></li>
+                        <li><a href="#">Fotoqalereya</a></li>
+                        <li><a href="#">Videoçarxlar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>FƏALİYYƏTLƏRİMİZ</h4>
+                    <ul>
+                        <li><a href="#">İşçilərin Hüquqi Müdafiəsi</a></li>
+                        <li><a href="#">Texniki Təhlükəsizlik və Mühafizə</a></li>
+                        <li><a href="#">Kollektiv Tərəfdaşlıq</a></li>
+                        <li><a href="#">Gənclər və İdman Tədbirləri</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>MÜRACİƏTLƏR</h4>
+                    <ul>
+                        <li><a href="#">Tez-tez verilən suallar</a></li>
+                        <li><a href="#">Bizimlə əlaqə </a></li>
+                        <li><a href="#">Vətəndaşların qəbul günləri</a></li>
+                        <li><a href="#">Onlayn E-müraciət forması</a></li>
+                        <li><a href="#">Sanatoriya Rezervasiya Sistemi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer1">
+        <p>© 2026 Azərsu ASC Həmkarlar İttifaqı Komitəsi - Bütün hüquqlar qorunur.</p>
+        <small>Dövlət İdarəçiliyi Standartlarında Hazırlanmışdır.</small>
+    </div>
+</footer>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

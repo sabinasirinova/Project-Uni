@@ -1,0 +1,221 @@
+/* ==========================================================================
+   GƏNCLƏR SİYASƏTİ VƏ SOSİAL STRUKTUR SƏHİFƏSİ (YOUTH PAGE) CSS
+   ========================================================================== */
+
+.youth-page-body {
+    background-color: #f4f7fa !important;
+    margin: 0;
+    padding: 0 !important; /* Əsas səhifənin sol menyu sıxılmasını ləğv edir */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Strukturu */
+.youth-custom-header {
+    background-color: #002d62; /* Azərsu tünd göyü */
+    color: #ffffff;
+    padding: 15px 0;
+    border-bottom: 3px solid #00a8e8;
+}
+.youth-header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.youth-logo-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.youth-logo-block i {
+    font-size: 30px;
+    color: #00a8e8; /* Aqua mavi */
+}
+.youth-logo-title strong {
+    display: block;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+.youth-logo-title span {
+    font-size: 12px;
+    color: #a0aec0;
+}
+.youth-back-btn {
+    background-color: #005691;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.youth-back-btn:hover {
+    background-color: #00a8e8;
+    color: #002d62;
+}
+
+/* Hero (Banner) Bölməsi */
+.youth-hero-section {
+    background: linear-gradient(135deg, #002d62, #005691);
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+.youth-hero-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.youth-hero-section h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+.youth-hero-section h1 i {
+    color: #00a8e8;
+}
+.youth-hero-section p {
+    font-size: 15px;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+/* Əsas Kontent Lahiyəsi */
+.youth-main-wrapper {
+    max-width: 1200px;
+    margin: 40px auto 60px auto;
+    padding: 0 20px;
+}
+.youth-grid-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+}
+
+/* Sol Menyu (Sidebar) */
+.youth-sidebar {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    height: fit-content;
+}
+.youth-sidebar-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #718096;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+.youth-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.youth-nav-link-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    color: #2d3748;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.youth-nav-link-item i {
+    color: #005691;
+    width: 18px;
+}
+.youth-nav-link-item:hover, .youth-nav-link-item.active {
+    background-color: #ebf8ff;
+    color: #005691;
+    font-weight: 600;
+}
+
+/* Sağ Məzmun Sahəsi */
+.youth-content-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.youth-alert-box {
+    background-color: #e6f6ff;
+    border-left: 4px solid #00a8e8;
+    padding: 20px;
+    border-radius: 6px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.youth-alert-box i {
+    font-size: 24px;
+    color: #005691;
+}
+.youth-alert-box h3 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    color: #002d62;
+}
+.youth-alert-box p {
+    margin: 0;
+    font-size: 13.5px;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+/* İnformasiya Kartları */
+.youth-info-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.youth-info-card h2 {
+    font-size: 18px;
+    color: #002d62;
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #edf2f7;
+    padding-bottom: 10px;
+}
+.youth-info-card h2 i {
+    color: #00a8e8;
+}
+.youth-info-card p {
+    font-size: 14.5px;
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Səhifə Footeri */
+.youth-custom-footer {
+    background-color: #002d62;
+    color: #a0aec0;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 13px;
+    border-top: 3px solid #00a8e8;
+}
+.youth-footer-container p {
+    margin: 4px 0;
+}
+
+/* Mobil Ekranlar Üçün Media Sorğusu */
+@media (max-width: 768px) {
+    .youth-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .youth-header-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
